@@ -1,0 +1,5 @@
+import { providerStatus } from "@/lib/ai/provider";
+export const dynamic = "force-dynamic";
+export async function GET() {
+  return Response.json(providerStatus(), { headers: { "Cache-Control": "no-store" } });
+}
