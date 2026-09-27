@@ -1,0 +1,2 @@
+/* Overlays are allowed on frozen screens; hide them so only the base UI is compared. */
+.fx-controls{visibility:hidden !important}

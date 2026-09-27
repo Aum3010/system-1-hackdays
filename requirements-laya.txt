@@ -1,0 +1,3 @@
+# Local Laya typed-decision server (optional). Verified with Python 3.12 on CPU.
+# Install into a virtualenv: see README "Laya decision server".
+laya[serve]==0.3.20

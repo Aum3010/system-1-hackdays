@@ -1,0 +1,89 @@
+/* Styles for additive gameplay UI (briefing, Snap Reinforcement, Arena Snap, Counter-Hunt).
+   New classes only; existing base styles are untouched. */
+
+/* Pre-fight briefing on the VS screen */
+.briefing{max-width:760px;margin:6px auto 30px;text-align:left;border:1.5px solid var(--ink);background:#fffef6;box-shadow:4px 4px 0 var(--ink);border-radius:5px;padding:20px 22px}
+.briefing h2{font-family:var(--display);font-size:24px;letter-spacing:.3px;margin-bottom:12px}
+.briefing-steps{margin:0;padding-left:20px;display:grid;gap:10px}
+.briefing-steps li{font-size:11px;line-height:1.6;color:var(--muted)}
+.briefing-steps li>strong{display:block;color:var(--ink);font-size:12px}
+.briefing kbd{font-family:monospace;font-size:10px;font-weight:700;letter-spacing:.5px;white-space:nowrap;border:1px solid var(--ink);border-radius:3px;padding:0 4px;background:white;color:var(--ink)}
+.briefing-triangle,.briefing-extras{display:flex;flex-wrap:wrap;gap:6px;margin-top:5px}
+.briefing-triangle>span,.briefing-extras>span{display:inline-flex;align-items:center;gap:5px;padding:5px 8px;border:1px solid var(--line);border-radius:3px;background:var(--paper);color:var(--ink);font-size:10px}
+.briefing-extras>span{flex:1 1 260px;display:block;line-height:1.7}
+.briefing-extras>span>svg{vertical-align:-2px;margin-right:5px}
+.briefing-traits{display:grid;gap:5px;margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
+.briefing-traits p{display:flex;align-items:flex-start;gap:6px;font-size:11px;line-height:1.5}
+.briefing-traits svg{color:#b89a12;flex-shrink:0;margin-top:2px}
+.briefing-foot{margin-top:10px;font-size:10px;color:var(--muted)}
+
+/* Arena Snap */
+.arena-snap{display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:16px}
+.arena-hint,.arena-result{font-size:10px;color:var(--muted)}
+.arena-result{display:flex;align-items:center;gap:6px;color:var(--purple)}
+.arena-button{cursor:pointer;color:var(--purple);font-weight:700}
+.arena-button.is-busy{cursor:progress}
+.arena-error{font-size:10px;color:#793721}
+.spin{animation:feature-spin 1s linear infinite}
+
+/* Snap Reinforcement modal (fixed overlay) */
+.snap-modal{position:fixed;inset:0;z-index:60;display:grid;place-items:center;padding:16px;background:#24242099;backdrop-filter:blur(3px)}
+.snap-card{width:min(440px,100%);background:var(--paper);border:2px solid var(--ink);border-radius:6px;box-shadow:8px 8px 0 #24242080;padding:26px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px}
+.snap-card .eyebrow{justify-content:center}
+.snap-card h2{font-family:var(--display);font-size:32px;line-height:1.05}
+.snap-timer{font-family:var(--display);font-size:22px}
+.snap-timer strong{font-size:64px;color:var(--purple)}
+.snap-timer.is-urgent strong{color:#e0533d;animation:fx-pip-pulse .5s ease-in-out infinite}
+.snap-items{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:6px;width:100%;text-align:left}
+.snap-items li{font-size:9px;color:var(--muted);line-height:1.4;border:1px solid var(--line);border-radius:3px;padding:6px 8px}
+.snap-items strong{display:block;color:var(--ink);font-size:11px}
+.snap-buttons{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.snap-buttons label{cursor:pointer}
+
+/* Counter-Hunt */
+.hunt-toggle{display:flex;gap:10px;align-items:flex-start;margin:0 0 16px;padding:12px 14px;border:1.5px dashed var(--purple);border-radius:4px;background:#f1ecfd;font-size:10px;line-height:1.5;cursor:pointer}
+.hunt-toggle input{accent-color:var(--purple);margin-top:2px}
+.hunt-result{display:flex;align-items:center;gap:7px;margin:0 0 16px;padding:10px 12px;background:#eef6d2;border:1px solid #b9cf63;border-radius:4px;font-size:11px;font-weight:700}
+.hunt-banner{display:flex;align-items:center;gap:14px;max-width:1080px;margin:0 auto 18px;padding:12px 16px;border:1.5px solid var(--ink);background:var(--lime);box-shadow:3px 3px 0 var(--ink);border-radius:4px;font-size:11px;line-height:1.5}
+.hunt-banner strong{font-family:var(--display);font-size:30px;min-width:70px;text-align:center}
+.hunt-banner.is-urgent{background:var(--coral)}
+.trait-box>svg{color:#b89a12}
+.hunt-badge{background:#eef6d2;border-color:#b9cf63;text-transform:none}
+
+@keyframes feature-spin{to{transform:rotate(360deg)}}
+@media(max-width:650px){.briefing{padding:16px;margin-bottom:24px}.briefing h2{font-size:20px}.snap-card{padding:20px}.snap-card h2{font-size:26px}.hunt-banner strong{font-size:24px;min-width:54px}}
+@media(prefers-reduced-motion:reduce){.spin,.snap-timer.is-urgent strong{animation:none}}
+
+/* Lore Pack: personnel file on the reveal screen */
+.hr-file{margin:0 0 16px;padding:14px 16px;border:1.5px solid var(--ink);border-radius:4px;background:#fffef6;box-shadow:3px 3px 0 var(--ink);display:grid;gap:6px}
+.hr-file.is-loading{display:flex;align-items:center;gap:8px;font-size:10px;color:var(--muted);box-shadow:none;border-style:dashed}
+.hr-file .mono{display:flex;align-items:center;gap:6px;font-size:8px;color:var(--muted)}
+.hr-title{font-size:15px;line-height:1.3}
+.hr-headline{font-size:11px;line-height:1.5}
+.hr-tenure{font-size:10px;color:var(--purple);font-weight:700}
+.hr-standup{margin:4px 0 0;display:grid;gap:4px}
+.hr-standup div{display:grid;grid-template-columns:70px 1fr;gap:8px;font-size:10px;line-height:1.45}
+.hr-standup dt{font-weight:900;letter-spacing:.4px;text-transform:uppercase;font-size:8px;padding-top:2px}
+.hr-standup dd{margin:0;color:var(--muted)}
+.hr-origin{display:grid;gap:5px;margin-top:6px;font-size:10px;font-weight:700}
+.hr-origin input{font:inherit;font-weight:400;font-size:11px;padding:7px 9px;border:1px solid var(--line);border-radius:3px;background:white}
+
+/* Settings pill additions: spice + owner popover */
+.fx-spice{display:flex;align-items:center;gap:4px;color:#c2410c}
+.fx-spice select{font:inherit;font-size:10px;font-weight:700;border:1px solid var(--line);border-radius:12px;padding:2px 6px;background:white;text-transform:capitalize}
+.fx-controls button.is-set{background:var(--lime)}
+.fx-owner{position:absolute;right:0;bottom:calc(100% + 8px);width:230px;display:grid;gap:7px;padding:12px;background:var(--paper);border:1.5px solid var(--ink);border-radius:6px;box-shadow:3px 3px 0 var(--ink)}
+.fx-owner p{font-size:10px;font-weight:400;line-height:1.4}
+.fx-owner input,.fx-owner select{font:inherit;font-size:11px;padding:6px 8px;border:1px solid var(--line);border-radius:3px;background:white}
+
+/* Laya: reveal-screen read, solo toggle, bot pad */
+.laya-read{margin:0 0 14px;padding:10px 12px;border:1px dashed var(--line);border-radius:4px;display:grid;gap:4px;font-size:11px}
+.laya-read .mono{display:flex;align-items:center;gap:6px;font-size:8px;color:var(--muted)}
+.laya-nudges{display:flex;flex-wrap:wrap;gap:6px}
+.laya-nudges span{font-size:10px;font-weight:700;padding:1px 6px;border-radius:10px;border:1px solid var(--line)}
+.laya-nudges .up{background:var(--lime)}
+.laya-nudges .down{background:#fde2dc}
+.solo-toggle{display:flex;flex-direction:column;align-items:center;gap:4px;margin-top:10px}
+.solo-toggle .text-button{color:var(--purple);font-weight:700}
+.solo-toggle .text-button.is-on{background:var(--lime);color:var(--ink);padding:3px 10px;border-radius:12px}
+.bot-pad .locked-card svg{color:var(--purple)}
